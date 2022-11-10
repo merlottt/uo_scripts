@@ -14,10 +14,11 @@ while Followers() == currentfolowers:
     if InJournal('You have no chance of taming this creature'):
         IgnoreObject(Target4taming)
         Stop()
-    
-Rename("Target4taming", "oo")  
-# Release pet
-WaitForContext(animal_being_tamed, 10, 15000)
-WaitForGump(0x909cc741, 5000)
-ReplyGump(0x909cc741, 2)
-Pause(1000)
+        
+while Followers() != currentfolowers:
+    Rename("Target4taming", "oo")  
+    # Release pet
+    WaitForContext(Target4taming, 10, 15000)
+    WaitForGump(0x909cc741, 5000)
+    ReplyGump(0x909cc741, 2)
+    Pause(1000)
